@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use Mohammed\MyPackageModule\Http\Controllers\MyPackageController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -19,6 +20,9 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('products', ProductController::class)
-    ->middleware(['auth', 'verified']);;
+    ->middleware(['auth', 'verified']);
+
+Route::get('/search', [MyPackageController::class, 'search'])
+    ->name('search');
 
 require __DIR__.'/auth.php';

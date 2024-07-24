@@ -2,6 +2,7 @@
     <div class="container mx-auto py-8 max-w-screen-lg ">
         <h1 class="text-3xl font-bold mb-4">Product List</h1>
         <a href="{{ route('products.create') }}" class="text-blue-500 hover:underline ml-2">Add New Product</a>
+        {{-- <a href="{{ route('mypackage.search') }}" class="text-blue-500 hover:underline ml-2">Search</a> --}}
         <div class="grid grid-cols-1 gap-4 ">
             @foreach ($products as $product)
                 <div class="bg-white p-4 rounded-lg shadow-md ">

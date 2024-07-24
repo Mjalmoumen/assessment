@@ -4,10 +4,20 @@
     "description": "The skeleton application for the Laravel framework.",
     "keywords": ["laravel", "framework"],
     "license": "MIT",
+    "repositories": {
+        "mypackage-module":{
+            "type": "path",
+            "url":"packages/mohammed/mypackage-module",
+            "options": {
+                "symlink": true
+            }
+        }
+    },
     "require": {
         "php": "^8.2",
         "laravel/framework": "^11.9",
-        "laravel/tinker": "^2.9"
+        "laravel/tinker": "^2.9",
+        "mohammed/mypackage-module": "@dev"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
@@ -27,7 +37,9 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "Tests\\": "tests/",
+            "App\\": "app/",
+            "Mohammed\\MyPackageModule\\": "packages/vendor/mypackage-module/src/"
         }
     },
     "scripts": {
@@ -49,7 +61,10 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": []
+            "dont-discover": [],
+            "providers": [
+                "Mohammed\\MyPackageModule\\MyPackageServiceProvider"
+            ]
         }
     },
     "config": {
